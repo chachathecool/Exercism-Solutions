@@ -5,30 +5,26 @@ declare(strict_types=1);
 class Lasagna
 {
     // Please define the 'expectedCookTime()' function
-    function expectedCookTime() {
-        $expectTimeInOven = 40;
-        return $expectTimeInOven;
+    public function expectedCookTime(): int {
+        return 40;
     }
 
     // Please define the 'remainingCookTime($elapsed_minutes)' function
-    function remainingCookTime($elapsed_minutes){
-        $timeLeftInOven = $this->expectedCookTime() - $elapsed_minutes;
-        return $timeLeftInOven;
+    public function remainingCookTime(int $elapsed_minutes): int {
+        return $this->expectedCookTime() - $elapsed_minutes;
     }
-
+    const minutesForEachLayer = 2;
     // Please define the 'totalPreparationTime($layers_to_prep)' function
-    function totalPreparationTime($layers_to_prep){
-        $timeToPrep = $layers_to_prep * 2; 
-        return $timeToPrep;
+    public function totalPreparationTime(int $layers_to_prep): int {
+        return $layers_to_prep * self::minutesForEachLayer; 
     }
 
     // Please define the 'totalElapsedTime($layers_to_prep, $elapsed_minutes)' function
-    function totalElapsedTime($layers_to_prep, $elapsed_minutes){
-        $timeToPrep = $this->totalPreparationTime($layers_to_prep) + $elapsed_minutes;
-        return $timeToPrep;
+    public function totalElapsedTime(int $layers_to_prep, int $elapsed_minutes): int {
+        return $this->totalPreparationTime($layers_to_prep) + $elapsed_minutes;
     }
     // Please define the 'alarm()' function
-    function alarm(){
+    public function alarm(): string {
         return "Ding!";
     }
 };
